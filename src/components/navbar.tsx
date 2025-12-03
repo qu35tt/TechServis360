@@ -1,0 +1,42 @@
+import { useState } from "react"
+import { Button } from "./ui/button"
+import logo from "/techservis360.png"
+import { Menu } from "lucide-react";
+
+export function Navbar() {
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
+    
+    return(
+        <>
+        <div className="sticky w-full h-[10vh] bg-[#F4F0ED] flex flex-row justify-between items-center p-4">
+            <img
+                src={logo}
+                className="w-[10vh] h-[10vh]"
+            />
+            <div className="hidden h-full lg:flex justify-center items-center space-x-24 text-xl font-semibold">
+                <h3 className="cursor-pointer hover:scale-120 hover:underline transition-all duration-400">Služby</h3>
+                <h3 className="cursor-pointer hover:scale-120 hover:underline transition-all duration-400">O nás</h3>
+                <h3 className="cursor-pointer hover:scale-120 hover:underline transition-all duration-400">Reference</h3>
+            </div>
+            <div className="hidden h-full lg:flex justify-center items-center p-8">
+                <Button className="w-40 h-15 bg-[#449315]">Kontaktujte nás!</Button>
+            </div>
+            <div className="lg:hidden h-full flex justify-center items-center">
+                <Button className="w-12 h-12" onClick={() => setIsMobileOpen(!isMobileOpen)}><Menu /></Button>
+            </div>
+        </div>
+        {isMobileOpen &&
+            <div className="absolute w-full bg-[#F4F0ED] flex flex-col justify-center items-center">
+                <div className="space-y-4 text-lg font-semibold "> 
+                    <h3>Služby</h3>
+                    <h3>O nás</h3>
+                    <h3>Reference</h3>
+                </div>
+                <div className="h-full flex justify-center items-center p-4">
+                    <Button className="w-40 h-15 bg-[#449315]">Kontaktujte nás!</Button>
+                </div>
+            </div>
+        }
+        </>
+    )
+}
