@@ -1,13 +1,23 @@
 import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
+import { Banner } from "@/components/banner";
 import { Services } from "@/components/services";
+import { Hero } from "@/components/hero"
+import { Gallery } from "@/components/gallery"
+import { Form } from "@/components/form"
+import { Footer } from "@/components/footer"
+import { Toaster } from "sonner";
 
 export function App() { 
   return (
-    <div className="w-screen h-screen bg-gray-950">
+    <div className="w-screen h-screen bg-[#F4F0ED]">
+      <Toaster position="top-center" richColors/>
       <Navbar />
-      <Hero />
+      <Banner />
       <Services />
+      <Hero />
+      <Gallery />
+      <Form />
+      <Footer />
     </div>
   )
 }
